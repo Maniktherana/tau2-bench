@@ -1,0 +1,88 @@
+[
+    {
+      "id": "<string>",
+      "description": {
+        "purpose": "<string>",
+        "relevant_policies": "<string>",
+        "notes": "<string>"
+      },
+      "user_scenario": {
+        "persona": "<string>",
+        "instructions": {
+          "domain": "<string>",
+          "reason_for_call": "<string>",
+          "known_info": "<string>",
+          "unknown_info": "<string>",
+          "task_instructions": "<string>"
+        }
+      },
+      "ticket": "<string>",
+      "initial_state": {
+        "initialization_data": "<string>",
+        "initialization_actions": [
+          {
+            "env_type": "<string>",
+            "func_name": "<string>",
+            "arguments": {}
+          }
+        ],
+        "message_history": "<string>"
+      },
+      "evaluation_criteria": {
+        "actions": [
+          {
+            "action_id": "<string>",
+            "requestor": "<string>",
+            "name": "<string>",
+            "arguments": {},
+            "info": "<string>",
+            "compare_args": [],
+            "goal_shift": 0,
+            "conflict": "no_conflict",
+            "allowed_tools": ["<string>"],
+            "min_calls": 1,
+            "arg_equivalence": {
+              "<arg_name>": "<rule_or_description_string>"
+            },
+            "cost_baseline_usd": 0.5,
+            "latency_budget_ms": 5000
+          },
+          {
+            "action_id": "<string>",
+            "requestor": "<string>",
+            "name": "<string>",
+            "arguments": {},
+            "info": "<string>",
+            "compare_args": [],
+            "goal_shift": 1,
+            "conflict": "hard_switch",
+            "allowed_tools": ["<string>"],
+            "min_calls": 2,
+            "arg_equivalence": {
+              "<arg_name>": "<rule_or_description_string>"
+            },
+            "cost_baseline_usd": 1.2,
+            "latency_budget_ms": 8000
+          }
+        ],
+        "env_assertions": [
+          {
+            "env_type": "<string>",
+            "func_name": "<string>",
+            "arguments": {},
+            "assert_value": true,
+            "message": "<string>"
+          }
+        ],
+        "communicate_info": "<string>",
+        "nl_assertions": "<string>",
+        "reward_basis": ["<string>"]
+      },
+      "perturbation": {
+        "type": "none",
+        "level": "none"
+      },
+      "paired_task_id": "<string>",
+      "baseline_profile": "<string>"
+    }
+  ]

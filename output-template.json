@@ -1,0 +1,186 @@
+{
+  "timestamp": "<string>",
+  "info": {
+    "git_commit": "<string>",
+    "seed": 0,
+    "num_trials": 0,
+    "max_steps": 0,
+    "max_errors": 0,
+    "environment_info": {
+      "domain_name": "<string>"
+    },
+    "user_info": {
+      "implementation": "<string>",
+      "llm": "<string>",
+      "llm_args": {}
+    },
+    "agent_info": {
+      "implementation": "<string>",
+      "llm": "<string>",
+      "llm_args": {}
+    }
+  },
+  "tasks": [
+    {
+      "id": "<string>",
+      "description": {
+        "purpose": "<string>",
+        "relevant_policies": "<string>",
+        "notes": "<string>"
+      },
+      "user_scenario": {
+        "persona": "<string>",
+        "instructions": {
+          "domain": "<string>",
+          "reason_for_call": "<string>",
+          "known_info": "<string>",
+          "unknown_info": "<string>",
+          "task_instructions": "<string>"
+        }
+      },
+      "ticket": "<string>",
+      "initial_state": {
+        "initialization_data": "<string>",
+        "initialization_actions": [
+          {
+            "env_type": "<string>",
+            "func_name": "<string>",
+            "arguments": {}
+          }
+        ],
+        "message_history": "<string>"
+      },
+      "evaluation_criteria": {
+        "actions": [
+          {
+            "action_id": "<string>",
+            "requestor": "<string>",
+            "name": "<string>",
+            "arguments": {},
+            "info": "<string>",
+            "compare_args": []
+          }
+        ],
+        "env_assertions": [
+          {
+            "env_type": "<string>",
+            "func_name": "<string>",
+            "arguments": {},
+            "assert_value": true,
+            "message": "<string>"
+          }
+        ],
+        "communicate_info": "<string>",
+        "nl_assertions": "<string>",
+        "reward_basis": ["<string>"]
+      },
+      "status": "<string>",
+      "score": 0.0,
+      "completion_rate": 0.0,
+      "avg_cost": 0.0,
+      "avg_duration": 0.0,
+      "extensions": {
+        "metrics_v2": {
+          "paired_task_id": "<string>",
+          "perturbation": {
+            "type": "<string>",
+            "level": "<string>"
+          },
+          "per_action": [
+            {
+              "action_id": "<string>",
+              "goal_shift": 0,
+              "conflict": "no_conflict",
+              "ctcs": 0.0,
+              "pas": 0.0,
+              "ces": 0.0,
+              "las": 0.0,
+              "tue": 0.0,
+              "tue_first": 0.0,
+              "tue_all": 0.0,
+              "calls_count": 0,
+              "total_cost_usd": 0.0,
+              "total_latency_ms": 0,
+              "shift_turn_index": 0,
+              "recovery_turn_index": 0,
+              "gsrt_turns": 0
+            },
+            {
+              "action_id": "<string>",
+              "goal_shift": 1,
+              "conflict": "hard_switch",
+              "ctcs": 0.0,
+              "pas": 0.0,
+              "ces": 0.0,
+              "las": 0.0,
+              "tue": 0.0,
+              "tue_first": 0.0,
+              "tue_all": 0.0,
+              "calls_count": 0,
+              "total_cost_usd": 0.0,
+              "total_latency_ms": 0,
+              "shift_turn_index": 0,
+              "recovery_turn_index": 0,
+              "gsrt_turns": 0
+            }
+          ],
+          "rp": {
+            "tsr_clean": 0.0,
+            "tsr_goal_change": 0.0,
+            "rp_retention_tsr": 0.0,
+            "rp_drop_tsr": 0.0,
+            "tue_clean": 0.0,
+            "tue_goal_change": 0.0,
+            "rp_retention_tue": 0.0,
+            "rp_drop_tue": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "simulations": [
+    {
+      "id": "<string>",
+      "task_id": "<string>",
+      "timestamp": "<string>",
+      "start_time": "<string>",
+      "end_time": "<string>",
+      "duration": 0.0,
+      "termination_reason": "<string>",
+      "agent_cost": 0.0,
+      "user_cost": 0.0,
+      "reward_info": {
+        "reward": 0.0
+      },
+      "messages": [],
+      "trial": 0,
+      "seed": 0
+    }
+  ],
+  "model": "<string>",
+  "domain": "<string>",
+  "num_trials": 0,
+  "created_at": "<string>",
+  "num_tasks": 0,
+  "pass_at_1": 0.0,
+  "pass_at_k": 0.0,
+  "avg_cost": 0.0,
+  "avg_duration": 0.0,
+  "metrics_v2_aggregates": {
+    "tue_weights": {
+      "ctcs": 0.0,
+      "pas": 0.0,
+      "ces": 0.0,
+      "las": 0.0
+    },
+    "tue_macro": 0.0,
+    "tue_first_macro": 0.0,
+    "tue_all_macro": 0.0,
+    "gsrt_macro_mean": 0.0,
+    "gsrt_macro_median": 0.0,
+    "rp_retention_tsr_macro": 0.0,
+    "rp_drop_tsr_macro": 0.0,
+    "rp_retention_tue_macro": 0.0,
+    "rp_drop_tue_macro": 0.0
+  }
+}
