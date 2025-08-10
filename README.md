@@ -46,22 +46,16 @@ cd tau2-bench
 
 2. Create a new environment (optional)
 
-$\tau^2$-bench requires Python 3.10 or higher. You may create and activate a new environment:
+$\tau^2$-bench requires Python 3.10 or higher. You may create and activate a new environment
+Use [`uv`](https://docs.astral.sh/uv/getting-started/installation/) to create a new environment and install the dependencies.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+uv sync
 ```
 
-3. Install tau2
+This will install all dependencies and enable you to run the `tau2` command.
 
-```bash
-pip install -e .
-```
-
-This will enable you to run the `tau2` command.
-
-**Note:** If you use `pip install .` (without `-e`), you'll need to set the `TAU2_DATA_DIR` environment variable to point to your data directory:
+**Note:** If you use `uv pip install .` (without `uv sync`), you'll need to set the `TAU2_DATA_DIR` environment variable to point to your data directory:
 
 ```bash
 export TAU2_DATA_DIR=/path/to/your/tau2-bench/data

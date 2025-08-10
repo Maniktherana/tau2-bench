@@ -15,13 +15,12 @@ clean:
 ## Run all tests
 .PHONY: test
 test:
-	pytest tests/
-
+	uv run pytest tests/
 
 ## Start the Environment CLI for interacting with domain environments
 .PHONY: env-cli
 env-cli:
-	python -m tau2.environment.utils.interface_agent
+	uv run python -m tau2.environment.utils.interface_agent
 
 ## Display online help for commonly used targets in this Makefile
 .PHONY: help
