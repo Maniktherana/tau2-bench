@@ -8,7 +8,7 @@ dumps/
 dump.rdb
 *.rdg
 logs/
-data/simulations/
+data/simulations/old
 
 .ruff_cache
 
