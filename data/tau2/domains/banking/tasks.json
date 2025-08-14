@@ -1,0 +1,168 @@
+[
+    {
+      "id": "goalshift_banking_001",
+      "description": {
+        "purpose": "Evaluate agent adaptability to changing user goals across authentication, transaction lookup, and dispute filing.",
+        "relevant_policies": "Banking and Financial Services Chatbot Policy",
+        "notes": "User begins with a login issue but shifts to querying a transaction and eventually initiating a dispute, requiring multi-tool adaptation."
+      },
+      "user_scenario": {
+        "persona": "Alex Morgan, a checking account holder with recent transaction activity",
+        "instructions": {
+          "domain": "banking",
+          "reason_for_call": "Issues logging in, suspicious card activity",
+          "known_info": "User has a checking account and an active debit card",
+          "unknown_info": "Login reason failure, latest transactions, how to dispute",
+          "task_instructions": "Assist the user through login issues, then surface recent transactions and resolve a disputed charge."
+        }
+      },
+      "ticket": "Customer facing login issues, suspects a fraudulent transaction, wants to dispute it.",
+      "initial_state": {
+        "initialization_data": "user_db.toml and db.toml as discussed",
+        "initialization_actions": [
+          {
+            "env_type": "user",
+            "func_name": "update_user",
+            "arguments": {
+              "surroundings.device.authenticated": false,
+              "surroundings.device.recent_login_attempts": 3
+            }
+          },
+          {
+            "env_type": "agent",
+            "func_name": "get_db",
+            "arguments": {}
+          }
+        ],
+        "message_history": ""
+      },
+      "evaluation_criteria": {
+        "actions": [
+          {
+            "action_id": "act_1",
+            "requestor": "user",
+            "name": "log_in",
+            "arguments": {
+              "username": "alex.morgan@example.com",
+              "otp": "123456"
+            },
+            "info": "User requests login, must validate OTP and update device context",
+            "compare_args": [],
+            "goal_shift": 0
+          },
+          {
+            "action_id": "act_2",
+            "requestor": "user",
+            "name": "get_recent_transactions",
+            "arguments": {
+              "account_id": "acc_001"
+            },
+            "info": "User reviews transactions and notices a suspicious purchase",
+            "compare_args": [],
+            "goal_shift": 1
+          },
+          {
+            "action_id": "act_3",
+            "requestor": "user",
+            "name": "resolve_dispute",
+            "arguments": {
+              "tx_id": "tx_001",
+              "reason_code": "unauthorized_charge"
+            },
+            "info": "User escalates issue and files a dispute, expecting confirmation",
+            "compare_args": [],
+            "goal_shift": 2
+          }
+        ]
+      }
+    }
+  ]
+  
+
+
+// {
+//     "id": "risk_profile_intake_scenario",
+//     "description": {
+//       "purpose": "Test LLM's ability to elicit missing risk-related fields and summarize a risk band for a customer profile.",
+//       "relevant_policies": [
+//         "Do not ask for PII beyond policy",
+//         "Ask at most 5 clarifying questions to fill core fields",
+//         "Summarize with valid risk band: conservative, moderate, aggressive",
+//         "Include an educational-only disclaimer"
+//       ],
+//       "notes": "Simulates a financial planning intake task"
+//     },
+//     "user_scenario": {
+//       "persona": "New investor with partial profile",
+//       "instructions": {
+//         "domain": "banking",
+//         "reason_for_call": "You want to understand your risk profile for long-term investing, but you're not sure what inputs are needed.",
+//         "known_info": "You are 35 years old, earn $180,000, plan to invest for 25 years, and say your risk tolerance is 'moderate'.",
+//         "unknown_info": "You haven't shared your tax bracket, liquidity needs, constraints, or existing accounts.",
+//         "task_instructions": "Answer the assistant's clarifying questions honestly. Do not volunteer information unless asked. You want to get a clear summary of your risk profile with a simple explanation. Look for an 'educational use only' note."
+//       }
+//     },
+//     "ticket": "User seeks a financial risk profile summary with only age, income, horizon, and risk tolerance initially known.",
+//     "initial_state": {
+//       "initialization_data": null,
+//       "initialization_actions": [
+//         {
+//           "env_type": "user",
+//           "func_name": "get_customer_by_phone",
+//           "arguments": {
+//             "phone_number": "555-123-4567"
+//           }
+//         },
+//         {
+//           "env_type": "user",
+//           "func_name": "get_accounts",
+//           "arguments": {
+//             "customer_id": "CUST_001"
+//           }
+//         },
+//         {
+//           "env_type": "user",
+//           "func_name": "get_transactions",
+//           "arguments": {
+//             "account_id": "ACC_001",
+//             "limit": 5
+//           }
+//         }
+//       ],
+//       "message_history": null
+//     },
+//     "evaluation_criteria": {
+//       "actions": [],
+//       "env_assertions": [
+//         {
+//           "env_type": "assistant",
+//           "func_name": "assert_max_clarifying_questions",
+//           "arguments": {
+//             "max_allowed": 5
+//           },
+//           "assert_value": true,
+//           "message": "Too many clarification questions asked"
+//         },
+//         {
+//           "env_type": "assistant",
+//           "func_name": "assert_text_in_output",
+//           "arguments": {
+//             "text": "educational"
+//           },
+//           "assert_value": true,
+//           "message": "Missing educational disclaimer"
+//         },
+//         {
+//           "env_type": "assistant",
+//           "func_name": "assert_risk_band_output",
+//           "arguments": {
+//             "valid_bands": ["conservative", "moderate", "aggressive"]
+//           },
+//           "assert_value": true,
+//           "message": "Invalid or missing risk band"
+//         }
+//       ],
+//       "reward_basis": ["ENV_ASSERTION"]
+//     }
+//   }
+  

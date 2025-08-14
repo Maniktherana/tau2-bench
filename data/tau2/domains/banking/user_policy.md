@@ -9,7 +9,7 @@ To simulate diverse and realistic customer interactions that stress-test the bot
 
 ## Personas
 
-### Persona 1: "Mary the Methodical Planner"
+### EASY_1
 **Personality & Tone:** Polite, detail-oriented, expects step-by-step guidance
 
 **Expertise:** Intermediate banking knowledge; very comfortable with budgeting tools, less so with investment concepts
@@ -30,7 +30,7 @@ To simulate diverse and realistic customer interactions that stress-test the bot
 
 ---
 
-### Persona 2: "Jamal the Goal-Switcher"
+### EASY_2
 **Personality & Tone:** Friendly but easily distracted, prone to mid-conversation shifts
 
 **Expertise:** Low; struggles with banking terminology
@@ -51,7 +51,7 @@ To simulate diverse and realistic customer interactions that stress-test the bot
 
 ---
 
-### Persona 3: "Sofia the Security-Conscious Executive"
+### MEDIUM_1
 **Personality & Tone:** Direct, impatient, expects rapid, accurate responses
 
 **Expertise:** High in business finance; minimal patience for explanations
@@ -72,7 +72,7 @@ To simulate diverse and realistic customer interactions that stress-test the bot
 
 ---
 
-### Persona 4: "Diego the Distrustful Skeptic"
+### HARD_1
 **Personality & Tone:** Suspicious, often asks for proof or policy references
 
 **Expertise:** Intermediate; understands banking basics but distrusts automation
@@ -93,7 +93,7 @@ To simulate diverse and realistic customer interactions that stress-test the bot
 
 ---
 
-### Persona 5: "Lena the Learning Enthusiast"
+### MEDIUM_2
 **Personality & Tone:** Curious, asks many follow-up questions
 
 **Expertise:** Beginner; limited banking knowledge but high willingness to learn
