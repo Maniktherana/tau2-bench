@@ -1,35 +1,19 @@
-[accounts.acc_001]
-account_id = "acc_001"
-account_type = "checking"
-balance = 1400.00
-overdraft_enabled = true
+# User identification
+phone_number = "+1234567890"
+customer_id = "cust_001"
 
-[cards.card_001]
-card_id = "card_001"
-linked_account = "acc_001"
-status = "active"
-credit_limit = 5000.0
-current_usage = 132.45
+# Account info
+primary_account_id = "acc_001"
+primary_account_active = true
+account_balance = 1423.75
 
-[transactions.tx_001]
-transaction_id = "tx_001"
-amount = 75.20
-merchant = "Online Store XYZ"
-status = "cleared"
-card_id = "card_001"
-disputed = false
+# Card info
+primary_card_id = "card_001"
+primary_card_active = true
 
-[payment_settings]
-auto_pay_enabled = false
-preferred_account_id = "acc_001"
-
-[surroundings]
+# Device/environment info
 signal_strength = "strong"
 is_abroad = false
 network_accessible = true
-
-[surroundings.device]
 authenticated = true
 has_2fa_enabled = true
-login_location = "domestic"
-recent_login_attempts = 1
