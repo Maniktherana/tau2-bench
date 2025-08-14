@@ -1,0 +1,81 @@
+[[customers]]
+customer_id = "cust_001"
+full_name = "Alex Morgan"
+date_of_birth = "1990-06-15"
+email = "alex.morgan@example.com"
+phone_number = "+1234567890"
+created_at = "2025-01-01T00:00:00"
+account_ids = ["acc_001"]
+card_ids = ["card_001"]
+statement_ids = ["stmt_001"]
+payment_request_ids = ["req_001"]
+dispute_ids = ["disp_001"]
+payee_ids = ["payee_001"]
+
+  [customers.address]
+  street = "123 Elm Street"
+  city = "Springfield"
+  state = "CA"
+  postal_code = "90001"
+
+[[accounts]]
+account_id = "acc_001"
+customer_id = "cust_001"
+type = "checking"
+masked_number = "••••6789"
+status = "Active"
+current_balance = 1423.75
+available_balance = 1400.00
+
+[[cards]]
+card_id = "card_001"
+account_id = "acc_001"
+type = "debit"
+last4 = "6789"
+status = "Active"
+
+[[statements]]
+statement_id = "stmt_001"
+account_id = "acc_001"
+period_start = "2025-05-01"
+period_end = "2025-05-31"
+issue_date = "2025-06-01"
+total_due = 132.45
+minimum_due = 25.00
+due_date = "2025-06-15"
+status = "Issued"
+
+[[transactions]]
+tx_id = "tx_001"
+account_id = "acc_001"
+timestamp = "2025-06-05T13:45:00"
+type = "card_purchase"
+amount = -75.20
+merchant_or_payee = "Online Store XYZ"
+status = "Posted"
+reference = "ORDER123XYZ"
+
+[[payees]]
+payee_id = "payee_001"
+customer_id = "cust_001"
+name = "Electric Co."
+deliver_type = "electronic"
+verified = true
+
+[[payment_requests]]
+request_id = "req_001"
+origin = "user"
+customer_id = "cust_001"
+from_account_id = "acc_001"
+to_payee_id = "payee_001"
+amount = 65.00
+status = "Awaiting Payment"
+created_at = "2025-06-10T10:00:00"
+
+[[disputes]]
+dispute_id = "disp_001"
+account_id = "acc_001"
+tx_id = "tx_001"
+reason_code = "unauthorized_charge"
+status = "Draft"
+opened_at = "2025-06-12T09:00:00"
